@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body style="margin-left: 20%">
+        <h2>Book collection</h2>
+        <h:form>
+            <h:panelGrid columns="1">            
+
+            <h:outputText value="All customers names:" />
+            <h:selectOneMenu style="width: 150px" value="#{adminUI.custDTO}" converter="customerConverter" >
+                <f:selectItems value="#{adminUI.allCustomers}"
+                               var="Status" 
+                               itemValue="#{Status}" 
+                               itemLabel="#{Status.custName}"/> 
+            </h:selectOneMenu><br/> 
+            
+            <h:outputText value="All drivers names:" />
+            <h:selectOneMenu style="width: 150px" value="#{adminUI.drivDTO}" converter="driverConverter" >
+                <f:selectItems value="#{adminUI.allDrivers}"
+                               var="Status" 
+                               itemValue="#{Status}" 
+                               itemLabel="#{Status.drivName}"/> 
+            </h:selectOneMenu><br/>
+            
+            <h:outputText value="Parcel status:" />
+            <h:selectOneMenu style="width: 250px" value="#{adminUI.statDTO}" converter="statusConverter" >
+                <f:selectItems value="#{adminUI.statusCollection}"
+                               var="Status" 
+                               itemValue="#{Status}" 
+                               itemLabel="#{Status.statusName}"/> 
+            </h:selectOneMenu><br/>
+            
+            <div>Supplier id: <h:outputText value="#{adminUI.supplierId}" /></div>                       
+            
+           </h:panelGrid> 
+            
+            <h:commandButton type="submit" value="Book collection" 
+                             action="#{adminUI.bookParcelCollection( adminUI.custDTO.customerId, 
+                                                                      adminUI.drivDTO.driverId, 
+                                                                      adminUI.statDTO.statusId)}" />
+            <p><h:commandButton type="submit" value="back" action="supplier.xhtml" immediate="true" /></p>
+        </h:form>
+    </body>
+</html>

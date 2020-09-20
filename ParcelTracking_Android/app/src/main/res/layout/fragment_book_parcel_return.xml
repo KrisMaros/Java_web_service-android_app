@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/holo_purple"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/edit_text_cust"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="give parcel id"/>
+
+    <Button
+        android:id="@+id/btn_book_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Parcel Return"/>
+
+    <TextView
+        android:id="@+id/text_view_return"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:textColor="#000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+         />
+
+</LinearLayout>

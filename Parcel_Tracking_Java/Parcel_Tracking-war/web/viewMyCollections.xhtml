@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <h2>View my collections</h2>
+        <h:form> 
+            <h:panelGrid style="font-size: 25px" columns="2">                
+              <div>Supplier name: <h:outputText value="#{adminUI.suppName}" /></div>            
+            </h:panelGrid>
+            
+             <h:dataTable styleClass="order-table" headerClass="order-table-header" 
+                          rowClasses="order-table-odd-row, order-table-even-row"
+                          border="2" 
+                          value="#{adminUI.parcelCollection}"
+                          var="parcel">
+                <h:column>
+                    <f:facet name="header">Parcel Id</f:facet>
+                        #{parcel.parcelId}                    
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Collection booking date</f:facet>
+                    <h:outputText value="#{parcel.awaiting_collection_date}" >
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+                    </h:outputText>                    
+                </h:column>
+                 
+                 <h:column>
+                    <f:facet name="header">Collection date</f:facet>                        
+                    <h:outputText value="#{parcel.collection_date}" >
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Delivery date</f:facet>                        
+                    <h:outputText value="#{parcel.delivery_date}" >
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:column>
+                 
+                <h:column>
+                    <f:facet name="header">Return collection booking date</f:facet>                        
+                    <h:outputText value="#{parcel.awaiting_return_collection_date}" >
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:column>
+                 
+                 <h:column>
+                    <f:facet name="header">Return collection date</f:facet>                        
+                    <h:outputText value="#{parcel.collection_return_date}" >
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:column>
+                 
+                <h:column>
+                    <f:facet name="header">Return delivery date</f:facet>                        
+                    <h:outputText value="#{parcel.return_delivery_date}" >
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:column>
+                 
+                <h:column>
+                    <f:facet name="header">Parcel status</f:facet>
+                        #{parcel.statusDTO.statusName}
+                </h:column>             
+                 
+                 <h:column>
+                    <f:facet name="header">Customer id</f:facet>
+                        #{parcel.customerDTO.customerId}
+                </h:column>
+                 
+                 <h:column>
+                    <f:facet name="header">Customer name</f:facet>
+                        #{parcel.customerDTO.custName}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Customer address</f:facet>
+                        #{parcel.customerDTO.custAddress}
+                </h:column>
+                 
+                 <h:column>
+                    <f:facet name="header">Driver id</f:facet>
+                        #{parcel.driverDTO.driverId}
+                </h:column>
+                 
+                 <h:column>
+                    <f:facet name="header">Driver name</f:facet>
+                        #{parcel.driverDTO.drivName}
+                </h:column>
+                 
+                 <h:column>
+                    <f:facet name="header">Driver car</f:facet>
+                        #{parcel.driverDTO.drivCar}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Driver address</f:facet>
+                        #{parcel.driverDTO.drivAddress}
+                </h:column>
+             </h:dataTable> 
+            <p><h:commandButton type="submit" value="back" action="supplier.xhtml" immediate="true" /></p>
+        </h:form>      
+    </h:body>
+</html>

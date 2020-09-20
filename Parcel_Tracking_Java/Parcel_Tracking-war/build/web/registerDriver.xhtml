@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body style="margin-left: 20%">
+        <h2>Driver Registration</h2>
+        <h:form>
+            <h:panelGrid columns="1">
+            <h:outputText value="Driver name:" />
+            <h:inputText id="name" 
+                         required="true"
+                         requiredMessage="Please enter the driver name"
+                         value="#{adminUI.drivName}" /><br/>
+
+            <h:outputText value="Password :" />
+            <h:inputText id="pwd" 
+                         required="true"
+                         requiredMessage="Please enter the password"
+                         value="#{adminUI.drivPwd}" /><br/>
+            
+            <h:outputText value="Password confirm:" />
+            <h:inputText id="pwd2" 
+                         required="true"
+                         requiredMessage="Please confirm password"
+                         value="#{adminUI.drivPwd2}" /><br/>
+
+            <h:outputText value="Address:" />
+            <h:inputText id="address" 
+                         required="true"
+                         requiredMessage="Please enter the driver address"
+                         value="#{adminUI.drivAddress}" /><br/>
+            
+            <h:outputText value="Car:" />
+            <h:inputText id="car" 
+                         required="true"
+                         requiredMessage="Please enter a car type"
+                         value="#{adminUI.drivCar}" /><br/>
+            
+            <h:outputText value="Contact:" />
+            <h:inputText id="telnum" 
+                         required="true"
+                         requiredMessage="Please enter the contact number"
+                         value="#{adminUI.drivContact}" /><br/>
+            
+            <h:commandButton style="width: 70px" type="submit" value="Register" action="#{adminUI.registerDriver()}" />
+            <h:commandButton style="width: 70px" type="submit" value="back" action="index.xhtml" immediate="true" />
+           </h:panelGrid> 
+            
+            
+        </h:form>
+    </body>
+</html>
